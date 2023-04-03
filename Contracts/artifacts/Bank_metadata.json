@@ -6,7 +6,13 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_tokenaddress",
+						"type": "address"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -15,12 +21,12 @@
 				"inputs": [
 					{
 						"indexed": false,
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
 					}
 				],
-				"name": "etherDeposited",
+				"name": "AmountDeposited",
 				"type": "event"
 			},
 			{
@@ -28,13 +34,39 @@
 				"inputs": [
 					{
 						"indexed": false,
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
 					}
 				],
-				"name": "etherWithdrawn",
+				"name": "AmountSent",
 				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "Bankallowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "bankBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			},
 			{
 				"inputs": [
@@ -44,7 +76,7 @@
 						"type": "address"
 					}
 				],
-				"name": "balances",
+				"name": "customerBalance",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -53,39 +85,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "bankOwner",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "checkEther",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "depositEther",
-				"outputs": [],
-				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -96,7 +95,46 @@
 						"type": "uint256"
 					}
 				],
-				"name": "withdrawEther",
+				"name": "depositAmount",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "depositerBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "token",
+				"outputs": [
+					{
+						"internalType": "contract CreateToken",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawAmount",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -115,7 +153,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Contracts/Bank.sol": "simpleBank"
+			"Contracts/Bank.sol": "Bank"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
